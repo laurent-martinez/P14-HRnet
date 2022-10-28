@@ -1,0 +1,12 @@
+.navIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2D3706;
+    padding: 15px;
+    &__title {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+}
