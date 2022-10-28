@@ -1,5 +1,17 @@
 .register {
     width: 100vw;
     height: 100vh;
-    background-color: #DEE6B9;
+    display: flex;
+    &__formWrapper {
+        width: 80%;
+        &__title {
+            margin: 0 auto;
+            padding: 5px 20px;
+            background-color: #DEE6B9;
+            font-size: 50px;
+            font-weight: 500;
+            width: 350px;
+            color: #2D3706;
+        }
+    }
 }

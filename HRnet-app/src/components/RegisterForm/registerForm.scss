@@ -1,0 +1,38 @@
+.registerForm {
+    margin-top: 50px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 5px 5px; 
+    grid-template-areas: 
+      "mainInfo address"
+      "department save"; 
+      justify-items: center; 
+  align-items: center; 
+}
+
+.department { 
+  grid-area: department;
+  background-color: #DEE6B9;
+  padding: 50px;
+}
+.save { grid-area: save; }
+.mainInfo { 
+  grid-area: mainInfo;
+  background-color: #DEE6B9;
+  padding: 50px;
+}
+.address { 
+  grid-area: address;
+  background-color: #DEE6B9;
+  padding: 50px;
+}
+
+.labelFirst {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.inputSpace {
+  margin-bottom: 15px;
+}
