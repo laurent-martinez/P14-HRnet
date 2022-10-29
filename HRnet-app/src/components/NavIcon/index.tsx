@@ -1,17 +1,23 @@
 import './navLink.scss';
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-interface iconProps {
+interface IconProps {
   icon: string;
+  ClName: string;
+  title: string;
+  urlPage: string;
 }
 
-function NavIcon( props) {
+function NavIcon({ icon, ClName, title, urlPage }: IconProps) {
   return (
-    <div className="navIcon">
-      <img src={`./img/${props.icon}`} alt="employees icon" />
-      <h2 className="navIcon__title">Employees</h2>
-    </div>
+    <Link to={`${urlPage}`}>
+      <div className={`navIcon ${ClName}`}>
+        <img src={`./img/${icon}`} alt="employees icon" />
+        <h2 className="navIcon__title">{title}</h2>
+      </div>
+    </Link>
   );
 }
 

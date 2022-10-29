@@ -3,10 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #4974A5;
     padding: 15px;
     &__title {
         margin-top: 5px;
         font-size: 18px;
     }
+}
+
+.registrate {
+    background-color: #6C8C50;
+    color: white;
+}
+.employ {
+    background-color: white;
+    color:#6C8C50
 }

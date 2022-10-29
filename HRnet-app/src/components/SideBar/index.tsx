@@ -7,8 +7,18 @@ function SideBar() {
     <div className="sidebar">
       <Logo />
       <nav className="sidebar__nav">
-        <NavIcon icon="registerIcon.svg" />
-        <NavIcon icon="employeesIcon.svg" />
+        <NavIcon
+          icon="registerIcon.svg"
+          urlPage="/"
+          title="Register"
+          ClName="registrate"
+        />
+        <NavIcon
+          icon="employeesIcon.svg"
+          urlPage="/employees"
+          title="Employees"
+          ClName="employ"
+        />
       </nav>
     </div>
   );
