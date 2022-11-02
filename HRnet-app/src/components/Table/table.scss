@@ -1,0 +1,52 @@
+.EmployeeTable {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    &__title {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: white;
+        padding:15px;
+    }
+}
+
+
+.ant-table-thead > tr > th {
+    background-color: white ;
+    color: #1c1c21;
+
+}
+
+.ant-table-tbody {
+    background-color: #1c1c21;
+    color: white;
+}
+.ant-table-tbody tr:nth-of-type(even) {
+    background-color: #26262a;
+}
+.ant-table-tbody > tr > td {
+    border-bottom: none;
+}
+
+// .ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row)>td, 
+// .ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row)>td, 
+// .ant-table-thead>tr:hover:not(.ant-table-expanded-row)>td, 
+// .ant-table-tbody>tr:hover:not(.ant-table-expanded-row)>td {
+//     background: unset; //Change the existing color to `unset`
+// }
+// tbody {
+//     pointer-events: none;
+// }
+
+thead {
+    background-color: unset !important;
+    color: unset !important;
+}
+
+thead:hover {
+    background-color: unset !important;
+    color: unset !important;
+}

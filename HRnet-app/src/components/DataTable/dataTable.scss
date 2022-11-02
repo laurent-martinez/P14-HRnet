@@ -1,4 +1,30 @@
-.tr {
+
+.tableContainer {
+width: 80%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.table {
+    &__thead {
+        background-color: #364F33;
+        padding: 15px;
+        &__tr {
+            padding: 15px;
+            &__th {
+                color: white;
+                padding: 15px;
+            }
+        }
+    }
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }

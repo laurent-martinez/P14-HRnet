@@ -2,14 +2,14 @@
     margin-top: 50px;
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr 1fr; 
+    // grid-template-rows: 1fr 1fr; 
     gap: 5px 5px; 
     grid-template-areas: 
       "mainInfo address"
       "department save"; 
       justify-items: center; 
   align-items: center;
-  color: white;
+  color: black;
 }
 
 .department { 
@@ -36,4 +36,15 @@
 
 .inputSpace {
   margin-bottom: 15px;
+}
+
+.save {
+  &__button {
+
+      font-size: 18px;
+      color: white;
+      background-color: #364F33;
+      /* text-decoration: none; */
+      border: none;
+  }
 }

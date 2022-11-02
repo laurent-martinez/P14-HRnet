@@ -1,228 +1,150 @@
+import 'antd/dist/antd.css';
 import './registerForm.scss';
-
-import React, { useEffect, useState } from 'react';
+import { Select, Form, DatePicker, Input, InputNumber, Button } from 'antd';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addUser } from '../../redux/user.slice';
+import { addUser, User } from '../../redux/user.slice';
+import stateNames from '../../Datas/states';
 
 function RegisterForm() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [firstname, setFirstname] = useState<string>('');
-  const [lastname, setLastname] = useState<string>('');
-  const [birthDate, setBirthDate] = useState<string>();
-  const [startDate, setStartDate] = useState<string>();
-  const [street, setStreet] = useState<string>('');
-  const [city, setCity] = useState<string>('');
-  const [states, setStates] = useState<string>('');
-  const [zipCode, setZipCode] = useState<string>();
-  const [department, setDepartment] = useState<string>('');
+  // const [firstname, setFirstname] = useState<string>('');
+  // const [lastname, setLastname] = useState<string>('');
+  // const [birthDate, setBirthDate] = useState<string>();
+  // const [startDate, setStartDate] = useState<string>();
+  // const [street, setStreet] = useState<string>('');
+  // const [city, setCity] = useState<string>('');
+  // const [states, setStates] = useState<string>('');
+  // const [zipCode, setZipCode] = useState<number>(0);
+  // const [department, setDepartment] = useState<string>('');
   const { UserDatas } = useAppSelector((state) => state.user);
 
-  useEffect(() => {
-    UserDatas.map((use) => console.log("silvio",use.firstname));
-  }, [UserDatas]);
+  // const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   switch (name) {
+  //     case 'firstname':
+  //       setFirstname(value);
+  //       break;
+  //     case 'lastname':
+  //       setLastname(value);
+  //       break;
+  //     case 'birthDate':
+  //       setBirthDate(value);
+  //       break;
+  //     case 'startDate':
+  //       setStartDate(value);
+  //       break;
+  //     case 'street':
+  //       setStreet(value);
+  //       break;
+  //     case 'city':
+  //       setCity(value);
+  //       break;
+  //     case 'states':
+  //       setStates(value);
+  //       break;
+  //     case 'zipCode':
+  //       setZipCode(value);
+  //       break;
+  //     case 'department':
+  //       setDepartment(value);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // };
 
-  const userArray = {
-    firstname,
-    lastname,
-    birthDate,
-    startDate,
-    street,
-    city,
-    states,
-    zipCode,
-    department,
-  };
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    switch (name) {
-      case 'firstname':
-        setFirstname(value);
-        break;
-      case 'lastname':
-        setLastname(value);
-        break;
-      case 'birthDate':
-        setBirthDate(value);
-        break;
-      case 'startDate':
-        setStartDate(value);
-        break;
-      case 'street':
-        setStreet(value);
-        break;
-      case 'city':
-        setCity(value);
-        break;
-      case 'states':
-        setStates(value);
-        break;
-      case 'zipCode':
-        setZipCode(value);
-        break;
-      case 'department':
-        setDepartment(value);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    dispatch(addUser(userArray));
+  // const id = lastname.slice(0, 3) + Math.floor(Math.random() * 100);
+  // const userArray = {
+  //   id,
+  //   firstname,
+  //   lastname,
+  //   birthDate,
+  //   startDate,
+  //   street,
+  //   city,
+  //   states,
+  //   zipCode,
+  //   department,
+  // };
+  const handleSubmit = (e) => {
+    e.birthDate = e.birthDate.format('MM-DD-YYYY');
+    e.startDate = e.startDate.format('MM-DD-YYYY');
+    console.log(e);
+    dispatch(addUser({ ...e }));
     navigate('/employees');
   };
 
   return (
-    <form className="registerForm" onSubmit={handleSubmit}>
+    <Form className="registerForm" onFinish={handleSubmit} layout="vertical">
       <div className="mainInfo">
-        <div className="firstname inputSpace">
-          <label
-            htmlFor="firstname"
-            className="labelFirst
-          "
-          >
-            <input
-              type="text"
-              name="firstname"
-              id="firstname"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            First Name
-          </label>
-        </div>
-        <div className="lastname inputSpace">
-          <label
-            htmlFor="lastname"
-            className="labelFirst
-          "
-          >
-            <input
-              type="text"
-              name="lastname"
-              id="lastname"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            Last Name
-          </label>
-        </div>
-        <div className="birthDate inputSpace">
-          <label
-            htmlFor="birthDate"
-            className="labelFirst
-          "
-          >
-            <input
-              type="Date"
-              name="birthDate"
-              id="birthDate"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            Date of Birth
-          </label>
-        </div>
-        <div className="startDate inputSpace">
-          <label
-            htmlFor="startDate"
-            className="labelFirst
-          "
-          >
-            <input
-              type="Date"
-              name="startDate"
-              id="startDate"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            Start Date
-          </label>
-        </div>
+        <Form.Item
+          label="First Name"
+          name="firstname"
+          className="firstname inputSpace"
+        >
+          <Input required autoComplete="off" />
+        </Form.Item>
+        <Form.Item
+          label="Last Name"
+          name="lastname"
+          className="lastname inputSpace"
+        >
+          <Input required autoComplete="off" />
+        </Form.Item>
+
+        <Form.Item className="birthDate" name="birthDate" label="Day of Birth">
+          <DatePicker picker="date" format="MM/DD/YYYY" />
+        </Form.Item>
+        <Form.Item className="startDate" label="Start Date" name="startDate">
+          <DatePicker picker="date" format="MM/DD/YYYY" />
+        </Form.Item>
       </div>
       <div className="address">
-        <div className="street inputSpace">
-          <label
-            htmlFor="street"
-            className="labelFirst
-          "
-          >
-            <input
-              type="text"
-              name="street"
-              id="street"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            Street
-          </label>
-        </div>
-        <div className="city inputSpace">
-          <label
-            htmlFor="city"
-            className="labelFirst
-          "
-          >
-            <input
-              type="text"
-              name="city"
-              id="city"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            City
-          </label>
-        </div>
-        <div className="state inputSpace">
-          <label htmlFor="states" className="labelFirst">
-            State
-          </label>
-          <select name="states" id="states" onChange={handleOnChange}>
-            <option value="sales">sales</option>
-            <option value="marketing">marketing</option>
-          </select>
-        </div>
-        <div className="zipCode inputSpace">
-          <label
-            htmlFor="zipCode"
-            className="labelFirst
-          "
-          >
-            <input
-              type="number"
-              name="zipCode"
-              id="zipCode"
-              required
-              autoComplete="off"
-              onChange={handleOnChange}
-            />
-            Zip Code
-          </label>
-        </div>
+        <Form.Item className="street inputSpace" label="Street" name="street">
+          <Input required />
+        </Form.Item>
+        <Form.Item className="city inputSpace" name="city" label="City">
+          <Input required />
+        </Form.Item>
+        <Form.Item className="state inputSpace" label="State" name="states">
+          <Select style={{ width: 190 }}>
+            {stateNames.map((options, index) => (
+              <Select.Option key={index} value={options.toLowerCase()}>
+                {options}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
+        <Form.Item
+          className="zipCode inputSpace"
+          label="Zip Code"
+          name="zipCode"
+        >
+          <InputNumber />
+        </Form.Item>
       </div>
       <div className="department">
-        <label htmlFor="department" className="labelFirst">
-          Department
-        </label>
-        <select name="department" id="department" onChange={handleOnChange}>
-          <option value="sales">sales</option>
-          <option value="marketing">marketing</option>
-        </select>
+        <Form.Item name="department" label="Department">
+          <Select>
+            <Select.Option value="sales">sales</Select.Option>
+            <Select.Option value="marketing">marketing</Select.Option>
+            <Select.Option value="engineering">Engineering</Select.Option>
+            <Select.Option value="human resources">
+              Human Resources
+            </Select.Option>
+            <Select.Option value="legal">Legal</Select.Option>
+          </Select>
+        </Form.Item>
       </div>
       <div className="save">
-        <button type="submit">Save</button>
+        <Button className="save__button" type="primary" htmlType="submit">
+          Save
+        </Button>
       </div>
-    </form>
+    </Form>
   );
 }
 
