@@ -1,18 +1,33 @@
 import 'antd/dist/antd.css';
 import './table.scss';
-import { Table } from 'antd';
+import { Table, Input } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
+import { useState } from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import { User } from '../../redux/user.slice';
 
 function CurrentEmployees() {
   const { UserDatas } = useAppSelector((state) => state.user);
+  const [searchedText, setSearchedText] = useState<string>('');
   const dataSource: User[] = UserDatas;
+
   const columns: ColumnsType<User> = [
     {
       title: 'First Name',
       dataIndex: 'firstname',
       key: 'firstname',
+      filteredValue: [searchedText],
+      onFilter: (value: string, record) => {
+        return (
+          String(record.firstname).toLowerCase().includes(value) ||
+          String(record.lastname).toLowerCase().includes(value) ||
+          String(record.department).toLowerCase().includes(value) ||
+          String(record.states).toLowerCase().includes(value) ||
+          String(record.city).toLowerCase().includes(value) ||
+          String(record.zipCode).toLowerCase().includes(value)
+        );
+      },
+      filterSearch: true,
       sorter: (a, b) => a.firstname.localeCompare(b.firstname),
     },
     {
@@ -65,6 +80,12 @@ function CurrentEmployees() {
   return (
     <div className="EmployeeTable">
       <h1 className="EmployeeTable__title">Employees</h1>
+      <Input.Search
+        placeholder="Search here..."
+        style={{ marginBottom: 8, width: 150, left: 0 }}
+        onSearch={(value) => setSearchedText(value)}
+        onChange={(e) => setSearchedText(e.target.value)}
+      />
       <Table dataSource={dataSource} columns={columns} className="table" />;
     </div>
   );
