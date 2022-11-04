@@ -2,5 +2,21 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: #53b587;
+    background-color: #2B325E;
+    &__title {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        font-size:x-large;
+        background-color: #93ad18;
+        padding:15px;
+        transition: ease-in-out;
+        cursor: pointer;
+        // &:hover {
+        //     border: solid 6px #2B325E;
+        //     color: #2B325E;
+        //     z-index: 15;
+        // }
+    }
 }

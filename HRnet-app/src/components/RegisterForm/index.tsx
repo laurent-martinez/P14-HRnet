@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { addUser, User } from '../../redux/user.slice';
 import stateNames from '../../Datas/states';
+import Logo from '../Logo';
+import Modelise from '../../models/modelise';
 
 function RegisterForm() {
   const dispatch = useAppDispatch();
@@ -69,80 +71,101 @@ function RegisterForm() {
   //   zipCode,
   //   department,
   // };
+
   const handleSubmit = (e) => {
     e.birthDate = e.birthDate.format('MM-DD-YYYY');
     e.startDate = e.startDate.format('MM-DD-YYYY');
-    console.log(e);
+    e.states = stateNames.find(
+      (ed) => ed.name.toLowerCase() === e.states
+    )?.abbreviation;
     dispatch(addUser({ ...e }));
-    navigate('/employees');
   };
 
   return (
     <Form className="registerForm" onFinish={handleSubmit} layout="vertical">
-      <div className="mainInfo">
-        <Form.Item
-          label="First Name"
-          name="firstname"
-          className="firstname inputSpace"
-        >
-          <Input required autoComplete="off" />
-        </Form.Item>
-        <Form.Item
-          label="Last Name"
-          name="lastname"
-          className="lastname inputSpace"
-        >
-          <Input required autoComplete="off" />
-        </Form.Item>
+      <Logo />
+      <h1 className="registerForm__title">Register</h1>
+      <div className="registerForm__main-content">
+        <div className="mainInfo">
+          <Form.Item
+            label="First Name"
+            name="firstname"
+            className="firstname inputSpace"
+          >
+            <Input required autoComplete="off" />
+          </Form.Item>
+          <Form.Item
+            label="Last Name"
+            name="lastname"
+            className="lastname inputSpace"
+          >
+            <Input required autoComplete="off" />
+          </Form.Item>
 
-        <Form.Item className="birthDate" name="birthDate" label="Day of Birth">
-          <DatePicker picker="date" format="MM/DD/YYYY" />
-        </Form.Item>
-        <Form.Item className="startDate" label="Start Date" name="startDate">
-          <DatePicker picker="date" format="MM/DD/YYYY" />
-        </Form.Item>
+          <Form.Item
+            className="birthDate"
+            name="birthDate"
+            label="Day of Birth"
+          >
+            <DatePicker
+              picker="date"
+              format="MM/DD/YYYY"
+              placement="topRight"
+            />
+          </Form.Item>
+          <Form.Item className="startDate" label="Start Date" name="startDate">
+            <DatePicker
+              picker="date"
+              format="MM/DD/YYYY"
+              placement="topRight"
+              value={(e) => e.target.value.format('MM/DD/YYYY')}
+            />
+          </Form.Item>
+        </div>
+        <div className="address">
+          <Form.Item className="street inputSpace" label="Street" name="street">
+            <Input required />
+          </Form.Item>
+          <Form.Item className="city inputSpace" name="city" label="City">
+            <Input required />
+          </Form.Item>
+          <Form.Item className="state inputSpace" label="State" name="states">
+            <Select style={{ width: 190 }}>
+              {stateNames.map((options, index) => (
+                <Select.Option key={index} value={options.name.toLowerCase()}>
+                  {options.name}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+          <Form.Item
+            className="zipCode inputSpace"
+            label="Zip Code"
+            name="zipCode"
+          >
+            <InputNumber />
+          </Form.Item>
+        </div>
       </div>
-      <div className="address">
-        <Form.Item className="street inputSpace" label="Street" name="street">
-          <Input required />
-        </Form.Item>
-        <Form.Item className="city inputSpace" name="city" label="City">
-          <Input required />
-        </Form.Item>
-        <Form.Item className="state inputSpace" label="State" name="states">
-          <Select style={{ width: 190 }}>
-            {stateNames.map((options, index) => (
-              <Select.Option key={index} value={options.toLowerCase()}>
-                {options}
+      <div className="registerForm__aside">
+        <div className="department">
+          <Form.Item name="department" label="Department">
+            <Select>
+              <Select.Option value="sales">sales</Select.Option>
+              <Select.Option value="marketing">marketing</Select.Option>
+              <Select.Option value="engineering">Engineering</Select.Option>
+              <Select.Option value="human resources">
+                Human Resources
               </Select.Option>
-            ))}
-          </Select>
-        </Form.Item>
-        <Form.Item
-          className="zipCode inputSpace"
-          label="Zip Code"
-          name="zipCode"
-        >
-          <InputNumber />
-        </Form.Item>
-      </div>
-      <div className="department">
-        <Form.Item name="department" label="Department">
-          <Select>
-            <Select.Option value="sales">sales</Select.Option>
-            <Select.Option value="marketing">marketing</Select.Option>
-            <Select.Option value="engineering">Engineering</Select.Option>
-            <Select.Option value="human resources">
-              Human Resources
-            </Select.Option>
-            <Select.Option value="legal">Legal</Select.Option>
-          </Select>
-        </Form.Item>
-      </div>
-      <div className="save">
-        <Button className="save__button" type="primary" htmlType="submit">
-          Save
-        </Button>
+              <Select.Option value="legal">Legal</Select.Option>
+            </Select>
+          </Form.Item>
+          <div className="save">
+            <Button className="save__button" type="primary" htmlType="submit">
+              Save
+            </Button>
+          </div>
+        </div>
       </div>
     </Form>
   );

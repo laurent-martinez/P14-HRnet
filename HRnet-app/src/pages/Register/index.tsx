@@ -1,15 +1,18 @@
 import './register.scss';
-
 import React from 'react';
-import SideBar from '../../components/SideBar';
+import { Link } from 'react-router-dom';
+// import SideBar from '../../components/SideBar';
 import RegisterForm from '../../components/RegisterForm';
+import Logo from '../../components/Logo';
 
 function Register() {
   return (
     <div className="register">
-      <SideBar />
+      {/* <SideBar /> */}
+      <Link to="/employees" className="register__title">
+        Employees
+      </Link>
       <div className="register__formWrapper">
-        <h2 className="register__formWrapper__title">Create Employee</h2>
         <RegisterForm />
       </div>
     </div>

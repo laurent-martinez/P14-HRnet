@@ -1,32 +1,62 @@
 .registerForm {
-    margin-top: 50px;
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    // grid-template-rows: 1fr 1fr; 
-    gap: 5px 5px; 
-    grid-template-areas: 
-      "mainInfo address"
-      "department save"; 
-      justify-items: center; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  //   grid-template-columns: 2fr 2fr; 
+  //   // grid-template-rows: 1fr 1fr; 
+  //   gap: 5px 5px; 
+  //   grid-template-areas: 
+  //     "mainInfo address"
+  //     "department save"; 
+  //     justify-items: center; 
+  // align-items: center;
+
+  &__title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    border-top: solid 6px #1F2243;
+    border-right: solid 6px #1F2243;
+    transition: ease-in-out;
+    background-color: #93ad18;
+    padding:15px;
+}
+&__main-content {
+  margin-top: 170px;
+  display: flex;
+  justify-content: space-around;
+}
+&__aside {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  color: black;
+}
+}
+.ant-form-vertical .ant-form-item-label > label {
+  color: white;
+  font-weight: bold;
 }
 
 .department { 
-  grid-area: department;
-  background-color: #6C8C50;
-  padding: 50px;
+  color: white;
+  width: 40%;
+  padding: 20px;
+  background-color: #151730;
+  display: flex;
+  flex-direction: column;
 }
-.save { grid-area: save; }
+
 .mainInfo { 
-  grid-area: mainInfo;
-  background-color: #6C8C50;
-  padding: 50px;
+  width: 40%;
+  padding: 20px;
+  background-color: #151730;
 }
 .address { 
-  grid-area: address;
-  background-color: #6C8C50;
-  padding: 50px;
+  width: 40%;
+  padding: 20px;
+  background-color: #151730;
 }
 
 .labelFirst {
@@ -39,12 +69,33 @@
 }
 
 .save {
+  margin: 0 auto;
   &__button {
-
       font-size: 18px;
       color: white;
-      background-color: #364F33;
+      background-color: #2a8713;
       /* text-decoration: none; */
       border: none;
   }
+}
+
+
+
+.ant-picker-cell-inner{
+  transition: none;
+  &:hover {
+
+    background-color: #2a8713 !important;
+    color: white;
+  }
+}
+.ant-select-item-option {
+  &:hover {
+    background-color: #2a8713;
+    color: white;
+  }
+}
+
+.ant-picker-suffix {
+  color: #2a8713;
 }

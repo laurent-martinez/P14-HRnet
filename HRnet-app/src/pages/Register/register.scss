@@ -2,16 +2,30 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    &__formWrapper {
-        width: 80%;
-        &__title {
-            margin: 0 auto;
-            padding: 5px 20px;
-            background-color: #6C8C50;
-            font-size: 50px;
-            font-weight: 500;
-            width: 350px;
-            color: white;
-        }
+    justify-content: center;
+    align-items: center;
+    background-color: #2B325E;
+    &__title {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: white;
+        font-size:x-large;
+        background-color: #2a8713;
+        padding:15px;
+        transition: ease-in-out;
+        cursor: pointer;
+        // &:hover {
+        //     border: solid 6px #2B325E;
+        //     color: #2B325E;
+        //     z-index: 15;
+        // }
     }
+    &__formWrapper {
+        width: 90%;
+        height: 90%;
+    
+        background-color: #1F2243;
+    }
+
 }
