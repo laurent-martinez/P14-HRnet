@@ -134,12 +134,14 @@ function CurrentEmployees() {
   ];
   return (
     <div className="EmployeeTable">
-      <Logo />
-      <h1 className="EmployeeTable__title">Employees</h1>
+      <div className="EmployeeTable__header">
+        <Logo />
+        <h1 className="EmployeeTable__header__title">Employees</h1>
+      </div>
       <Input.Search
         placeholder="Search here..."
         style={{
-          marginTop: 100,
+          marginTop: 50,
           marginBottom: 8,
           width: 200,
           marginLeft: 20,

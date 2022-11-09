@@ -3,7 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import SideBar from '../../components/SideBar';
 import RegisterForm from '../../components/RegisterForm';
-import Logo from '../../components/Logo';
+
+
 
 function Register() {
   return (

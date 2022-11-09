@@ -4,10 +4,10 @@ import { Select, Form, DatePicker, Input, InputNumber, Button } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addUser, User } from '../../redux/user.slice';
+import { addUser } from '../../redux/user.slice';
 import stateNames from '../../Datas/states';
 import Logo from '../Logo';
-import Modelise from '../../models/modelise';
+import Modal from '../Modal';
 
 function RegisterForm() {
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ function RegisterForm() {
   // const [zipCode, setZipCode] = useState<number>(0);
   // const [department, setDepartment] = useState<string>('');
   const { UserDatas } = useAppSelector((state) => state.user);
-
+  const [open, setOpen] = useState<boolean>(false);
   // const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   const { name, value } = e.target;
   //   switch (name) {
@@ -71,7 +71,6 @@ function RegisterForm() {
   //   zipCode,
   //   department,
   // };
-
   const handleSubmit = (e) => {
     e.birthDate = e.birthDate.format('MM-DD-YYYY');
     e.startDate = e.startDate.format('MM-DD-YYYY');
@@ -79,12 +78,21 @@ function RegisterForm() {
       (ed) => ed.name.toLowerCase() === e.states
     )?.abbreviation;
     dispatch(addUser({ ...e }));
+    setOpen(true);
   };
 
   return (
     <Form className="registerForm" onFinish={handleSubmit} layout="vertical">
-      <Logo />
-      <h1 className="registerForm__title">Register</h1>
+      <Modal
+        open={open}
+        hideModal={() => setOpen(false)}
+        text="Employee successfully registered"
+        img="https://media.discordapp.net/attachments/1039488310155935794/1039868448471273472/marti_validation_vector_art_icon_on_a_circle_93ad18_2c5d3532-40be-4105-b790-143f778f5f09.png?width=577&height=577"
+      />
+      <div className="registerForm__header">
+        <Logo />
+        <h1 className="registerForm__header__title">Register</h1>
+      </div>
       <div className="registerForm__main-content">
         <div className="mainInfo">
           <Form.Item

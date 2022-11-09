@@ -1,5 +1,4 @@
 .registerForm {
-    position: relative;
     display: flex;
     flex-direction: column;
   //   grid-template-columns: 2fr 2fr; 
@@ -10,22 +9,25 @@
   //     "department save"; 
   //     justify-items: center; 
   // align-items: center;
-
-  &__title {
-    position: absolute;
-    top: 0;
-    right: 0;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+      &__title {
     color: white;
     border-top: solid 6px #1F2243;
     border-right: solid 6px #1F2243;
     transition: ease-in-out;
     background-color: #93ad18;
     padding:15px;
-}
+    height: 10%;
+    text-align: end;
+    }
+  }
+
 &__main-content {
-  margin-top: 170px;
   display: flex;
   justify-content: space-around;
+  margin-top: 30px;
 }
 &__aside {
   margin-top: 30px;
