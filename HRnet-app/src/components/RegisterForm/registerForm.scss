@@ -76,7 +76,12 @@
   }
 }
 
-
+.ant-select-item {
+  transition: none;
+}
+.ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background: unset;
+}
 
 .ant-picker-cell-inner{
   transition: none;
