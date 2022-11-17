@@ -1,143 +1,118 @@
 import 'antd/dist/antd.css';
 import './registerForm.scss';
-import { Select, Form, DatePicker, Input, InputNumber, Button } from 'antd';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addUser } from '../../redux/user.slice';
+import Select from "antd/es/select";
+import Form from "antd/es/form";
+import DatePicker from "antd/es/date-picker";
+import Input from "antd/es/input";
+import InputNumber from "antd/es/input-number";
+import Button from "antd/es/button";
 import stateNames from '../../Datas/states';
 import Logo from '../Logo';
-import Modal from '../Modal';
+import  { useState } from 'react';
+import { Link} from 'react-router-dom';
+import { MyModal } from '@martidev/react-modal-ts';
+import { useAppDispatch} from '../../redux/hooks';
+import { addUser} from '../../redux/user.slice';
+
 
 function RegisterForm() {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  // const [firstname, setFirstname] = useState<string>('');
-  // const [lastname, setLastname] = useState<string>('');
-  // const [birthDate, setBirthDate] = useState<string>();
-  // const [startDate, setStartDate] = useState<string>();
-  // const [street, setStreet] = useState<string>('');
-  // const [city, setCity] = useState<string>('');
-  // const [states, setStates] = useState<string>('');
-  // const [zipCode, setZipCode] = useState<number>(0);
-  // const [department, setDepartment] = useState<string>('');
-  const { UserDatas } = useAppSelector((state) => state.user);
-  const [open, setOpen] = useState<boolean>(false);
-  // const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   switch (name) {
-  //     case 'firstname':
-  //       setFirstname(value);
-  //       break;
-  //     case 'lastname':
-  //       setLastname(value);
-  //       break;
-  //     case 'birthDate':
-  //       setBirthDate(value);
-  //       break;
-  //     case 'startDate':
-  //       setStartDate(value);
-  //       break;
-  //     case 'street':
-  //       setStreet(value);
-  //       break;
-  //     case 'city':
-  //       setCity(value);
-  //       break;
-  //     case 'states':
-  //       setStates(value);
-  //       break;
-  //     case 'zipCode':
-  //       setZipCode(value);
-  //       break;
-  //     case 'department':
-  //       setDepartment(value);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
 
-  // const id = lastname.slice(0, 3) + Math.floor(Math.random() * 100);
-  // const userArray = {
-  //   id,
-  //   firstname,
-  //   lastname,
-  //   birthDate,
-  //   startDate,
-  //   street,
-  //   city,
-  //   states,
-  //   zipCode,
-  //   department,
-  // };
-  const handleSubmit = (e) => {
-    e.birthDate = e.birthDate.format('MM-DD-YYYY');
-    e.startDate = e.startDate.format('MM-DD-YYYY');
+  const dispatch = useAppDispatch();
+  const [open, setOpen] = useState<boolean>(false);
+  interface rawDatas {
+    firstname: string;
+    lastname: string;
+    birthDate: moment.Moment;
+    startDate: moment.Moment;
+    street: string;
+    city: string;
+    states: any;
+    department: string;
+    zipCode: number;
+  }
+
+  const handleSubmit = (e: rawDatas) => {
     e.states = stateNames.find(
       (ed) => ed.name.toLowerCase() === e.states
     )?.abbreviation;
-    dispatch(addUser({ ...e }));
+    dispatch(addUser({ ...e, birthDate: e.birthDate.format('MM-DD-YYYY'),startDate: e.startDate.format('MM-DD-YYYY') }));
     setOpen(true);
+    document.addEventListener("mousedown",()=> setOpen(false))
   };
 
   return (
-    <Form className="registerForm" onFinish={handleSubmit} layout="vertical">
-      <Modal
+    <Form className="registerForm"  onFinish={handleSubmit} layout="vertical">
+      <MyModal
         open={open}
-        hideModal={() => setOpen(false)}
-        text="Employee successfully registered"
-        img="https://media.discordapp.net/attachments/1039488310155935794/1039868448471273472/marti_validation_vector_art_icon_on_a_circle_93ad18_2c5d3532-40be-4105-b790-143f778f5f09.png?width=577&height=577"
-      />
-      <div className="registerForm__header">
+        closeBtnStyle="coloris"
+        styledContent="content"
+        hideModal={async () => setOpen(false)}
+        img="/img/logotest3.svg"
+      >
+        <button type="button" onClick={() => setOpen(false)}>
+          ok
+        </button>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+          omnis blanditiis veniam veritatis ullam officiis accusantium deserunt
+          in repellat autem excepturi quidem temporibus magnam reiciendis est
+          accusamus, adipisci provident quasi.
+        </p>
+      </MyModal>
+      <nav className="registerForm__header">
         <Logo />
-        <h1 className="registerForm__header__title">Register</h1>
-      </div>
-      <div className="registerForm__main-content">
-        <div className="mainInfo">
+        <div className="titles">
+          <Link aria-disabled to="/" className="register__title change">
+            Register
+          </Link>
+          <Link to="/employees" className="register__title">
+            Employees
+          </Link>
+        </div>
+      </nav>
+      <main className="registerForm__main-content">
+        <section className="mainInfo">
           <Form.Item
             label="First Name"
             name="firstname"
             className="firstname inputSpace"
+            rules={[{required: true}]}
           >
-            <Input required autoComplete="off" />
+            <Input required autoComplete="off"  maxLength={15} />
           </Form.Item>
           <Form.Item
             label="Last Name"
             name="lastname"
             className="lastname inputSpace"
+            rules={[{required: true}]}
           >
             <Input required autoComplete="off" />
           </Form.Item>
 
-          <Form.Item
-            className="birthDate"
-            name="birthDate"
-            label="Day of Birth"
-          >
+          <Form.Item className="birthDate" name="birthDate" label="Day of Birth" rules={[{required: true}]} >
             <DatePicker
               picker="date"
               format="MM/DD/YYYY"
               placement="topRight"
             />
           </Form.Item>
-          <Form.Item className="startDate" label="Start Date" name="startDate">
+          <Form.Item className="startDate" label="Start Date" name="startDate" rules={[{required: true}]}>
+            
             <DatePicker
               picker="date"
               format="MM/DD/YYYY"
               placement="topRight"
-              value={(e) => e.target.value.format('MM/DD/YYYY')}
             />
           </Form.Item>
-        </div>
-        <div className="address">
-          <Form.Item className="street inputSpace" label="Street" name="street">
-            <Input required />
+        </section>
+        <section className="address">
+          <Form.Item className="street inputSpace" label="Street" name="street"     rules={[{required: true}]}>
+            <Input  />
           </Form.Item>
-          <Form.Item className="city inputSpace" name="city" label="City">
-            <Input required />
+          <Form.Item className="city inputSpace" name="city" label="City"     rules={[{required: true}]}>
+            <Input  maxLength={23}/>
           </Form.Item>
-          <Form.Item className="state inputSpace" label="State" name="states">
+          <Form.Item className="state inputSpace" label="State" name="states"     rules={[{required: true}]}>
             <Select style={{ width: 190 }}>
               {stateNames.map((options, index) => (
                 <Select.Option key={index} value={options.name.toLowerCase()}>
@@ -150,14 +125,15 @@ function RegisterForm() {
             className="zipCode inputSpace"
             label="Zip Code"
             name="zipCode"
+            rules={[{required: true}]}
           >
             <InputNumber />
           </Form.Item>
-        </div>
-      </div>
-      <div className="registerForm__aside">
+        </section>
+      </main>
+      <aside className="registerForm__aside">
         <div className="department">
-          <Form.Item name="department" label="Department">
+          <Form.Item name="department" label="Department"     rules={[{required: true}]}>
             <Select>
               <Select.Option value="sales">sales</Select.Option>
               <Select.Option value="marketing">marketing</Select.Option>
@@ -174,7 +150,7 @@ function RegisterForm() {
             </Button>
           </div>
         </div>
-      </div>
+      </aside>
     </Form>
   );
 }

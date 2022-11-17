@@ -1,3 +1,6 @@
+import './fonts/Ubuntu-Medium.ttf';
+import './fonts/SourceSansPro-Bold.ttf';
+import './styles/index.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Employees from './pages/Employees';
 import NotFound from './pages/NotFound';

@@ -1,9 +1,10 @@
 import 'antd/dist/antd.css';
 import './table.scss';
-import { Table, Input } from 'antd';
+import Table from 'antd/lib/table';
+import Input from 'antd/lib/input';
 import type { ColumnsType } from 'antd/es/table';
 import { useState } from 'react';
-import { e } from 'vitest/dist/index-40e0cb97';
+import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../redux/hooks';
 import { User } from '../../redux/user.slice';
 import Logo from '../Logo';
@@ -25,7 +26,7 @@ function CurrentEmployees() {
       ),
       responsive: ['xs'],
       filteredValue: [searchedText],
-      onFilter: (value: string, record) => {
+      onFilter: (value: any, record) => {
         return (
           String(record.firstname).toLowerCase().includes(value) ||
           String(record.lastname).toLowerCase().includes(value) ||
@@ -42,7 +43,7 @@ function CurrentEmployees() {
       dataIndex: 'firstname',
       key: 'firstname',
       filteredValue: [searchedText],
-      onFilter: (value: string, record) => {
+      onFilter: (value: any, record) => {
         return (
           String(record.firstname).toLowerCase().includes(value) ||
           String(record.lastname).toLowerCase().includes(value) ||
@@ -133,11 +134,18 @@ function CurrentEmployees() {
     },
   ];
   return (
-    <div className="EmployeeTable">
-      <div className="EmployeeTable__header">
+    <main className="EmployeeTable">
+      <section className="EmployeeTable__header">
         <Logo />
-        <h1 className="EmployeeTable__header__title">Employees</h1>
-      </div>
+        <nav className="titles">
+          <Link to="/employees" className="register__title change">
+            Employees
+          </Link>
+          <Link to="/" className="register__title">
+            Register
+          </Link>
+        </nav>
+      </section>
       <Input.Search
         placeholder="Search here..."
         style={{
@@ -167,7 +175,7 @@ function CurrentEmployees() {
         scroll={{ x: 800, y: 350 }}
       />
       ;
-    </div>
+    </main>
   );
 }
 

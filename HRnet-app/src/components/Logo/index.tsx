@@ -1,10 +1,8 @@
 import './logo.scss';
 
-import React from 'react';
-
 function Logo() {
   return (
-    <div className="logo">
+    <div className="logo" title='logo'>
       <img src="./img/logotest3.svg" alt="logo" />
       <h1 className="logo__title">
         <span className="logo__title__maj">W</span>EALTH{' '}

@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface User {
-  id: string;
   firstname: string;
   lastname: string;
-  birthDate: Date;
-  startDate: Date;
+  birthDate: string;
+  startDate: string;
   street: string;
   city: string;
   states: string;

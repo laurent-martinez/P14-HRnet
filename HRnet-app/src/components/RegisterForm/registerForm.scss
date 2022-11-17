@@ -1,14 +1,6 @@
 .registerForm {
     display: flex;
     flex-direction: column;
-  //   grid-template-columns: 2fr 2fr; 
-  //   // grid-template-rows: 1fr 1fr; 
-  //   gap: 5px 5px; 
-  //   grid-template-areas: 
-  //     "mainInfo address"
-  //     "department save"; 
-  //     justify-items: center; 
-  // align-items: center;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -50,12 +42,8 @@
   flex-direction: column;
 }
 
-.mainInfo { 
-  width: 40%;
-  padding: 20px;
-  background-color: #151730;
-}
-.address { 
+
+.address, .mainInfo  { 
   width: 40%;
   padding: 20px;
   background-color: #151730;
@@ -73,11 +61,18 @@
 .save {
   margin: 0 auto;
   &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
       font-size: 18px;
+      padding: 20px;
       color: white;
       background-color: #2a8713;
-      /* text-decoration: none; */
       border: none;
+      &:hover {
+        background-color: #94c389;
+        color: #1F2243;
+      }
   }
 }
 
@@ -101,3 +96,28 @@
 .ant-picker-suffix {
   color: #2a8713;
 }
+
+.content {
+  text-align: center;
+  height: 100%;
+  padding: 15px;
+}
+.coloris {
+  background-color: #1F2243;
+  color: white;
+}
+
+.titles {
+  height: 50%;
+  margin-top: -35px;
+}
+
+.change {
+  background-color: #1F2243 !important;
+  color: white;
+  cursor:default;
+  &:hover {
+    color: white !important;
+  }
+}
+

@@ -1,9 +1,8 @@
 .EmployeeTable {
     position: absolute;
-    top: 5%;
     left: 5%;
     right: 5%;
-    bottom: 5%;
+    bottom: 0;
     height: 90%;
     width: 90%;
     display: flex;
@@ -14,9 +13,6 @@
         display: flex;
         justify-content: space-between;
         &__title {
-            position: absolute;
-            top: 0;
-            right: 0;
             color: white;
             border-top: solid 6px #1F2243;
             border-right: solid 6px #1F2243;
@@ -47,8 +43,11 @@ td.ant-table-column-sort {
     color: #2a8713;
     font-weight: bold;
     border: none;
-
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: large;
 }
+
 .ant-table-tbody > tr > td {
     border: none;
 }
@@ -71,26 +70,8 @@ td.ant-table-column-sort {
     background-color: #151730;
     border: none;
 }
-// .ant-table-tbody > tr > td {
-//     border-bottom: none;
-// }
 
-// // .ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row)>td, 
-// // .ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row)>td, 
-// // .ant-table-thead>tr:hover:not(.ant-table-expanded-row)>td, 
-// // .ant-table-tbody>tr:hover:not(.ant-table-expanded-row)>td {
-// //     background: unset; //Change the existing color to `unset`
-// // }
-// // tbody {
-// //     pointer-events: none;
-// // }
-
-// thead {
-//     background-color: unset !important;
-//     color: unset !important;
-// }
-
-// thead:hover {
-//     background-color: unset !important;
-//     color: unset !important;
-// }
+.ant-table-thead th.ant-table-column-has-sorters:hover {
+    background: #94c389;
+    color: #1F2243;
+}

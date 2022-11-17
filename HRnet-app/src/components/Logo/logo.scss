@@ -1,11 +1,15 @@
+@import "../../styles/variableMixins";
+
 .logo {
     background-color: white;
     height: 150px;
-    width: 20%;
-    display: flex;
+    width: 250px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include center();
+    & img {
+        width: 100px;
+        height: 100px;
+    }
         &__title {
         margin-top: 10px;
         font-family: 'Inter', sans-serif;
