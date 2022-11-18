@@ -1,11 +1,11 @@
-import './logo.scss';
+import "./logo.scss";
 
 function Logo() {
   return (
-    <div className="logo" title='logo'>
+    <div className="logo" title="logo">
       <img src="./img/logotest3.svg" alt="logo" />
       <h1 className="logo__title">
-        <span className="logo__title__maj">W</span>EALTH{' '}
+        <span className="logo__title__maj">W</span>EALTH{" "}
         <span className="logo__title__maj">H</span>EALTH
       </h1>
     </div>

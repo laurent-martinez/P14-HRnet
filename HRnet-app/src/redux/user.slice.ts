@@ -7,7 +7,7 @@ export interface User {
   startDate: string;
   street: string;
   city: string;
-  states: string;
+  states: string | undefined;
   zipCode: number;
   department: string;
 }

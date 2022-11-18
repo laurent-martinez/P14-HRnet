@@ -168,7 +168,7 @@ function CurrentEmployees() {
           defaultPageSize: 10,
           style: { color: 'white' },
           showSizeChanger: true,
-          pageSizeOptions: ['10', '20', '30'],
+          pageSizeOptions: ['10', '25', '50','100'],
           showTotal: (total, range) =>
             `Showing ${range[0]} to ${range[1]} of ${total} entries`,
           position: ['bottomRight'],
