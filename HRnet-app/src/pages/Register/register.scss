@@ -1,0 +1,36 @@
+.register {
+    font-family: 'Ubuntu', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B325E;
+    &__title {
+  
+        color: white;
+        font-size:large;
+        background-color: #2a8713;
+        padding:15px 40px;
+        width: 50px;
+        transition: ease-in-out;
+        border-radius: 10px 10px 0 0;
+        cursor: pointer;
+        &:hover {
+            background-color: #94c389;
+            color: #1F2243;
+        }
+    }
+    &__formWrapper {
+        width: 90%;
+        height: 95%;
+        margin-top: 100px;
+        background-color: #1F2243;
+    }
+
+}
+
+button,a{
+    font-family: 'Source Sans Pro', sans-serif !important;
+}

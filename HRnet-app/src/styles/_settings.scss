@@ -1,0 +1,36 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: black;
+
+}
+h1,h2,h3,p {
+    margin: 0;
+    padding: 0;
+}
+
+label,input,select {
+    font-family: 'Ubuntu', sans-serif;
+}
+h1,h2,h3,button,a {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: local("Ubuntu") url("../fonts/Ubuntu-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Source Sans Pro', sans-serif;
+    src: local("Source Sans Pro") url("../fonts/SourceSansPro-Bold.ttf") format("truetype");
+}
