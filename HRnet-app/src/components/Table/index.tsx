@@ -4,10 +4,8 @@ import Table from "antd/lib/table";
 import Input from "antd/lib/input";
 import type { ColumnsType } from "antd/es/table";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { User } from "../../redux/user.slice";
-import Logo from "../Logo";
 import Nav from "../Nav";
 
 function CurrentEmployees() {
