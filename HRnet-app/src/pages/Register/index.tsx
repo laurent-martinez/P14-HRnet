@@ -6,7 +6,7 @@ function Register() {
   return (
     <div className="register">
       <div className="register__formWrapper">
-        <Nav title="Register" currentPage="Register" goTo="Employees" />
+        <Nav currentPage="Register" goTo="Employees" />
         <RegisterForm />
       </div>
     </div>

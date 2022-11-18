@@ -1,22 +1,23 @@
-import 'antd/dist/antd.css';
-import './table.scss';
-import Table from 'antd/lib/table';
-import Input from 'antd/lib/input';
-import type { ColumnsType } from 'antd/es/table';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../redux/hooks';
-import { User } from '../../redux/user.slice';
-import Logo from '../Logo';
+import "antd/dist/antd.css";
+import "./table.scss";
+import Table from "antd/lib/table";
+import Input from "antd/lib/input";
+import type { ColumnsType } from "antd/es/table";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { User } from "../../redux/user.slice";
+import Logo from "../Logo";
+import Nav from "../Nav";
 
 function CurrentEmployees() {
   const { UserDatas } = useAppSelector((state) => state.user);
-  const [searchedText, setSearchedText] = useState<string>('');
+  const [searchedText, setSearchedText] = useState<string>("");
   const dataSource: User[] = UserDatas;
 
   const columns: ColumnsType<User> = [
     {
-      title: 'Names',
+      title: "Names",
       render: (record) => (
         <>
           {record.firstname}
@@ -24,7 +25,7 @@ function CurrentEmployees() {
           {record.lastname}
         </>
       ),
-      responsive: ['xs'],
+      responsive: ["xs"],
       filteredValue: [searchedText],
       onFilter: (value: any, record) => {
         return (
@@ -39,9 +40,9 @@ function CurrentEmployees() {
       sorter: (a, b) => a.lastname.localeCompare(b.lastname),
     },
     {
-      title: 'First Name',
-      dataIndex: 'firstname',
-      key: 'firstname',
+      title: "First Name",
+      dataIndex: "firstname",
+      key: "firstname",
       filteredValue: [searchedText],
       onFilter: (value: any, record) => {
         return (
@@ -53,45 +54,45 @@ function CurrentEmployees() {
           String(record.zipCode).toLowerCase().includes(value)
         );
       },
-      width: '110px',
+      width: "110px",
       filterSearch: true,
       sorter: (a, b) => a.firstname.localeCompare(b.firstname),
-      responsive: ['md', 'lg', 'sm'],
+      responsive: ["md", "lg", "sm"],
     },
     {
-      title: 'Last Name',
-      dataIndex: 'lastname',
-      key: 'lastname',
+      title: "Last Name",
+      dataIndex: "lastname",
+      key: "lastname",
       sorter: (a, b) => a.lastname.localeCompare(b.lastname),
-      responsive: ['md', 'lg'],
-      width: '110px',
+      responsive: ["md", "lg"],
+      width: "110px",
     },
     {
-      title: 'Start Date',
-      dataIndex: 'startDate',
-      key: 'startDate',
+      title: "Start Date",
+      dataIndex: "startDate",
+      key: "startDate",
       sorter: (a, b) => a.startDate.localeCompare(b.startDate),
-      responsive: ['md', 'lg', 'sm', 'xs'],
-      width: '90px',
+      responsive: ["md", "lg", "sm", "xs"],
+      width: "90px",
     },
     {
-      title: 'Department',
-      dataIndex: 'department',
-      key: 'department',
+      title: "Department",
+      dataIndex: "department",
+      key: "department",
       sorter: (a, b) => a.department.localeCompare(b.department),
-      responsive: ['md', 'lg', 'sm', 'xs'],
-      width: '120px',
+      responsive: ["md", "lg", "sm", "xs"],
+      width: "120px",
     },
     {
-      title: 'Date of Birth',
-      dataIndex: 'birthDate',
-      key: 'birthDate',
+      title: "Date of Birth",
+      dataIndex: "birthDate",
+      key: "birthDate",
       sorter: (a, b) => a.birthDate.localeCompare(b.birthDate),
-      responsive: ['lg', 'md', 'sm', 'xs'],
-      width: '110px',
+      responsive: ["lg", "md", "sm", "xs"],
+      width: "110px",
     },
     {
-      title: 'address',
+      title: "address",
       render: (record) => (
         <>
           {record.street}
@@ -100,54 +101,44 @@ function CurrentEmployees() {
         </>
       ),
       sorter: (a, b) => a.city.localeCompare(b.city),
-      responsive: ['xs'],
+      responsive: ["xs"],
     },
     {
-      title: 'Street',
-      dataIndex: 'street',
-      key: 'street',
+      title: "Street",
+      dataIndex: "street",
+      key: "street",
       sorter: (a, b) => a.street.localeCompare(b.street),
-      responsive: ['md', 'lg', 'sm'],
-      width: '200px',
+      responsive: ["md", "lg", "sm"],
+      width: "200px",
     },
     {
-      title: 'City',
-      dataIndex: 'city',
-      key: 'city',
+      title: "City",
+      dataIndex: "city",
+      key: "city",
       sorter: (a, b) => a.city.localeCompare(b.city),
-      responsive: ['md', 'lg', 'sm'],
-      width: '110px',
+      responsive: ["md", "lg", "sm"],
+      width: "110px",
     },
     {
-      title: 'State',
-      dataIndex: 'states',
-      key: 'states',
+      title: "State",
+      dataIndex: "states",
+      key: "states",
       sorter: (a, b) => a.states.localeCompare(b.states),
-      responsive: ['md', 'lg', 'sm'],
-      width: '70px',
+      responsive: ["md", "lg", "sm"],
+      width: "70px",
     },
     {
-      title: 'Zip Code',
-      dataIndex: 'zipCode',
-      key: 'zipCode',
+      title: "Zip Code",
+      dataIndex: "zipCode",
+      key: "zipCode",
       sorter: (a, b) => a.zipCode - b.zipCode,
-      responsive: ['md', 'lg', 'sm'],
-      width: '130px',
+      responsive: ["md", "lg", "sm"],
+      width: "130px",
     },
   ];
   return (
     <main className="EmployeeTable">
-      <section className="EmployeeTable__header">
-        <Logo />
-        <nav className="titles">
-          <Link to="/employees" className="register__title change">
-            Employees
-          </Link>
-          <Link to="/" className="register__title">
-            Register
-          </Link>
-        </nav>
-      </section>
+      <Nav currentPage="Employees" goTo="Register" />
       <Input.Search
         placeholder="Search here..."
         style={{
@@ -155,8 +146,8 @@ function CurrentEmployees() {
           marginBottom: 8,
           width: 200,
           marginLeft: 20,
-          backgroundColor: '#151730',
-          color: 'white',
+          backgroundColor: "#151730",
+          color: "white",
         }}
         onSearch={(value) => setSearchedText(value)}
         onChange={(e) => setSearchedText(e.target.value)}
@@ -166,12 +157,12 @@ function CurrentEmployees() {
         columns={columns}
         pagination={{
           defaultPageSize: 10,
-          style: { color: 'white' },
+          style: { color: "white" },
           showSizeChanger: true,
-          pageSizeOptions: ['10', '25', '50','100'],
+          pageSizeOptions: ["10", "25", "50", "100"],
           showTotal: (total, range) =>
             `Showing ${range[0]} to ${range[1]} of ${total} entries`,
-          position: ['bottomRight'],
+          position: ["bottomRight"],
         }}
         className="table"
         scroll={{ x: 800, y: 350 }}

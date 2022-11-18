@@ -2,16 +2,14 @@ import { Link } from "react-router-dom";
 import Logo from "../Logo";
 
 interface NavProps {
-  title: string;
   currentPage: string;
   goTo: string;
 }
 
-function Nav({ title, currentPage, goTo }: NavProps) {
+function Nav({ currentPage, goTo }: NavProps) {
   return (
     <nav className="nav-header">
       <Logo />
-      <h2>{title}</h2>
       <ul className="nav-header__titles">
         <li>
           {" "}

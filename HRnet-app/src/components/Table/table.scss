@@ -2,12 +2,12 @@
     position: absolute;
     left: 5%;
     right: 5%;
-    bottom: 0;
     height: 90%;
     width: 90%;
+    bottom: 0;
+    top: 8%;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
     background-color: #1F2243;
     &__header {
         display: flex;
@@ -22,6 +22,8 @@
         }
     }
 }
+
+
 .ant-table {
     background: unset;
 }
@@ -52,7 +54,7 @@ td.ant-table-column-sort {
     border: none;
 }
 .table {
-    padding: 20px;
+    padding: 100px 20px;
 }
 .ant-table-tbody tr {
     background-color: #1F2243;

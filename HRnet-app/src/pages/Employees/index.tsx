@@ -1,7 +1,6 @@
-import '../../styles/index.scss';
-import './employees.scss';
-import CurrentEmployees from '../../components/Table';
-
+import "../../styles/index.scss";
+import "./employees.scss";
+import CurrentEmployees from "../../components/Table";
 
 function Employees() {
   return (
