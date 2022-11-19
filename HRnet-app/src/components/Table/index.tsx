@@ -138,7 +138,7 @@ function CurrentEmployees() {
   ];
   return (
     <main className="EmployeeTable">
-      <Nav currentPage="Employees" goTo="Register" />
+      <Nav currentPage="Employees" goTo="" />
       <Input.Search
         placeholder="Search here..."
         style={{

@@ -24,7 +24,7 @@ function Nav({ currentPage, goTo }: NavProps) {
         <li>
           {" "}
           <Link to={`/${goTo}`} className="register__title">
-            {goTo}
+            {goTo || "Register"}
           </Link>
         </li>
       </ul>
