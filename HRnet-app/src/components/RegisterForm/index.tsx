@@ -28,7 +28,7 @@ function RegisterForm() {
     startDate: moment.Moment;
     street: string;
     city: string;
-    states: string | undefined;
+    states: any;
     department: string;
     zipCode: number;
   }
