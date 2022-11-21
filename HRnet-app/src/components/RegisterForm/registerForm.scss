@@ -1,28 +1,23 @@
 .nav-header {
   display: flex;
   justify-content: space-between;
-
   &__titles {
-   
       height: 50%;
       margin-top: -35px;
     display: flex;
     list-style-type: none;
   }
 }
+
 .registerForm {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 30px;
-
-
-
+  margin-top: 90px;
   &__main-content {
     display: flex;
     justify-content: space-evenly;
     margin-top: 30px;
-
     &__titles {
       text-align: center;
       color: #1F2243;
@@ -34,7 +29,6 @@
       padding: 5px 0;
     }
   }
-
   &__aside {
     margin-top: 30px;
     display: flex;
@@ -58,6 +52,10 @@
   color: white;
   font-weight: bold;
 }
+.ant-form-item {
+  width: 60%;
+  margin: 0 auto;
+}
 
 .department {
   color: white;
@@ -75,6 +73,7 @@
   height: auto;
   background-color: #151730;
   border-radius: 5px;
+  padding-bottom: 20px;
 }
 
 .address__content,
@@ -182,3 +181,4 @@
   border: #2a8713 2px solid;
   border-radius: 5px;
 }
+

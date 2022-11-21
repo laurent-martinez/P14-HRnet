@@ -23,9 +23,10 @@
         }
     }
     &__formWrapper {
+        position: absolute;
+        bottom: 0;
         width: 90%;
-        height: 95%;
-        margin-top: 100px;
+        height: 90%;
         background-color: #1F2243;
     }
 
@@ -33,4 +34,77 @@
 
 button,a{
     font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+@media only screen and (max-width: 1000px){
+    // TABLE
+    body {
+        overflow: scroll;
+        background-color: #2B325E;
+    }
+    .EmployeeTable {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+    .table {
+        padding: 25px 0;
+    }
+    .logo {
+        display: none;
+    }
+    .ant-input-group-wrapper , .ant-input-search {
+        margin: 30px auto 15px auto;
+    }
+    .ant-table-pagination {
+        text-align: center;
+        display: block;
+    }
+    .nav-header {
+        justify-content: center !important;
+        &__titles {
+            margin-top: 0 !important;
+        }
+    }
+    .ant-pagination-total-text {
+        display: block;
+    }
+    // FORM
+
+    .registerForm {
+        margin-bottom: 25px;
+        margin-top: 30px !important;
+        gap: 50px;
+        flex-direction: column;
+        align-items: center;
+        &__main-content {
+            &__titles {
+                border-radius: 0 !important;
+            }
+        }
+    }
+    .mainInfo, .address {
+        width: 100% !important;
+        border-radius: 0;
+    }
+    .register {
+        overflow: auto;
+        &__formWrapper {
+            position: static;
+            height: 100%;
+            width: 100%;
+    }
+    }
+    .save__button {
+        margin: 0 auto 20px auto !important;
+    }
+
+      
+}
+
+@media only screen and (max-width: 425px){
+    .ant-form-item {
+        width: 100% !important;
+        margin: 0 auto;
+      }
 }

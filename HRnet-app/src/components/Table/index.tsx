@@ -139,14 +139,6 @@ function CurrentEmployees() {
       <Nav currentPage="Employees" goTo="" />
       <Input.Search
         placeholder="Search here..."
-        style={{
-          marginTop: 50,
-          marginBottom: 8,
-          width: 200,
-          marginLeft: 20,
-          backgroundColor: "#151730",
-          color: "white",
-        }}
         onSearch={(value) => setSearchedText(value)}
         onChange={(e) => setSearchedText(e.target.value)}
       />
@@ -165,7 +157,6 @@ function CurrentEmployees() {
         className="table"
         scroll={{ x: 800, y: 350 }}
       />
-      ;
     </main>
   );
 }

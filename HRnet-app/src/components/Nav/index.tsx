@@ -14,11 +14,11 @@ function Nav({ currentPage, goTo }: NavProps) {
         <li>
           {" "}
           <Link
-            aria-disabled
+            aria-disabled="true"
             to={`/${currentPage}`}
             className="register__title change"
           >
-            {currentPage}
+            {currentPage || "Register"}
           </Link>
         </li>
         <li>
