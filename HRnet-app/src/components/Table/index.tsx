@@ -82,7 +82,7 @@ function CurrentEmployees() {
       width: "120px",
     },
     {
-      title: "Date of Birth",
+      title: "D.O.B",
       dataIndex: "birthDate",
       key: "birthDate",
       sorter: (a, b) => a.birthDate.localeCompare(b.birthDate),

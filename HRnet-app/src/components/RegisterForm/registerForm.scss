@@ -1,3 +1,10 @@
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
 .nav-header {
   display: flex;
   justify-content: space-between;
@@ -109,6 +116,7 @@
     color: white;
     background-color: #2a8713;
     border: none;
+    
 
     &:hover {
       background-color: #94c389;
