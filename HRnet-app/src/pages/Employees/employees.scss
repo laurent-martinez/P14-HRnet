@@ -1,23 +1,11 @@
+@import "../../styles/variableMixins";
+
 .employees {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: $bodyFont;
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: #2B325E;
-    &__title {
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: white;
-        font-size:x-large;
-        background-color: #93ad18;
-        padding:15px;
-        transition: ease-in-out;
-        cursor: pointer;
-    }
+    background-color: $background;
 }
 
-button,a{
-    font-family: 'Source Sans Pro', sans-serif !important;
-}
 

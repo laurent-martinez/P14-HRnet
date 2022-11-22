@@ -1,6 +1,10 @@
-import './notfound.scss';
+import "./notfound.scss";
 
-import React from 'react';
+/**
+ *
+ * functionnal component who render a page that will be display,
+ *  when user try to access to a non existing path in the app
+ */
 
 function NotFound() {
   return (

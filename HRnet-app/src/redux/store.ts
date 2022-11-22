@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistCombineReducers,
@@ -8,12 +8,14 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import userReducer from './user.slice';
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import userReducer from "./user.slice";
+
+// configuring the redux store
 
 const persistConfig = {
-  key: 'auth',
+  key: "auth",
   version: 1,
   storage,
 };

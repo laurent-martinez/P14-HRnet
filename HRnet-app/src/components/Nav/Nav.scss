@@ -1,0 +1,35 @@
+@import "../../styles/variableMixins";
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    &__titles {
+        height: 50%;
+        margin-top: -35px;
+        display: flex;
+        list-style-type: none;
+        &__title {
+            color: white;
+            font-size:large;
+            background-color: $accentColor;
+            padding:15px 40px;
+            width: 50px;
+            transition: ease-in-out;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            &:hover {
+                background-color:$hoverAccentColor;
+                color: $desktopBackground;
+            }
+        }
+    }
+  }
+
+  .change {
+    background-color: $desktopBackground !important;
+    color: white;
+    cursor: default;
+    &:hover {
+      color: white !important;
+    }
+  }
