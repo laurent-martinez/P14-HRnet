@@ -13,7 +13,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
-    "@martidev/react-modal-ts": "^0.17.0",
+    "@martidev/react-modal-ts": "^0.18.0",
     "@reduxjs/toolkit": "^1.8.6",
     "antd": "^4.24.0",
     "react": "^18.2.0",
