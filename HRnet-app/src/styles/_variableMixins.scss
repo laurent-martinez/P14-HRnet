@@ -1,6 +1,6 @@
 // VARIABLES 
-$titleFont : 'Source Sans Pro', sans-serif;
-$bodyFont: 'Ubuntu', sans-serif;
+$titleFont : 'Source Sans Pro',sans-serif;
+$bodyFont: 'Ubuntu',sans-serif;
 $background : #2B325E;
 $desktopBackground: #1F2243;
 $cardsBackground: #151730;
@@ -17,7 +17,12 @@ $hoverAccentColor: #94c389;
     justify-content: center;
     align-items: center;
 }
-
+@mixin columnCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 @mixin reset {
     margin: 0;
     padding: 0;

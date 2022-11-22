@@ -8,13 +8,20 @@ import { useAppSelector } from "../../redux/hooks";
 import { User } from "../../redux/user.slice";
 import Nav from "../Nav";
 
+/**
+ * 
+ * functionnal component who render the data table of all the workers successfully registered
+ */
 function CurrentEmployees() {
+  // Get the array of all the workers registered from the redux store
   const { UserDatas } = useAppSelector((state) => state.user);
+  // get the values of the searchField to filter the datas
   const [searchedText, setSearchedText] = useState<string>("");
   const dataSource: User[] = UserDatas;
-
+  // defining the columns for antd table with correct types
   const columns: ColumnsType<User> = [
     {
+      // gather table columns on small screens
       title: "Names",
       render: (record) => (
         <>
@@ -24,6 +31,7 @@ function CurrentEmployees() {
         </>
       ),
       responsive: ["xs"],
+      // filtering the datas with search field values
       filteredValue: [searchedText],
       onFilter: (value: any, record) => {
         return (
@@ -35,6 +43,7 @@ function CurrentEmployees() {
           String(record.zipCode).toLowerCase().includes(value)
         );
       },
+      // sorting workers according to last name
       sorter: (a, b) => a.lastname.localeCompare(b.lastname),
     },
     {
@@ -52,9 +61,10 @@ function CurrentEmployees() {
           String(record.zipCode).toLowerCase().includes(value)
         );
       },
-      width: "110px",
+      width: "120px",
       filterSearch: true,
       sorter: (a, b) => a.firstname.localeCompare(b.firstname),
+      // defining on which size of screen this column will be displayed
       responsive: ["md", "lg", "sm"],
     },
     {
@@ -63,7 +73,7 @@ function CurrentEmployees() {
       key: "lastname",
       sorter: (a, b) => a.lastname.localeCompare(b.lastname),
       responsive: ["md", "lg"],
-      width: "110px",
+      width: "120px",
     },
     {
       title: "Start Date",
@@ -71,7 +81,7 @@ function CurrentEmployees() {
       key: "startDate",
       sorter: (a, b) => a.startDate.localeCompare(b.startDate),
       responsive: ["md", "lg", "sm", "xs"],
-      width: "90px",
+      width: "110px",
     },
     {
       title: "Department",
@@ -79,7 +89,7 @@ function CurrentEmployees() {
       key: "department",
       sorter: (a, b) => a.department.localeCompare(b.department),
       responsive: ["md", "lg", "sm", "xs"],
-      width: "120px",
+      width: "130px",
     },
     {
       title: "D.O.B",
@@ -90,6 +100,7 @@ function CurrentEmployees() {
       width: "110px",
     },
     {
+      // gather the address details on one column in small screens
       title: "address",
       render: (record) => (
         <>
@@ -107,7 +118,7 @@ function CurrentEmployees() {
       key: "street",
       sorter: (a, b) => a.street.localeCompare(b.street),
       responsive: ["md", "lg", "sm"],
-      width: "200px",
+      width: "150px",
     },
     {
       title: "City",
@@ -123,7 +134,7 @@ function CurrentEmployees() {
       key: "states",
       sorter: (a, b) => a.states.localeCompare(b.states),
       responsive: ["md", "lg", "sm"],
-      width: "70px",
+      width: "80px",
     },
     {
       title: "Zip Code",
@@ -144,17 +155,21 @@ function CurrentEmployees() {
       />
       <Table
         dataSource={dataSource}
+        // give a random key to rows
+        rowKey={(Math.random() + 1).toString(36).substring(7)}
         columns={columns}
         pagination={{
           defaultPageSize: 10,
           style: { color: "white" },
           showSizeChanger: true,
+          // settle the among of rows that will be displayed on the table
           pageSizeOptions: ["10", "25", "50", "100"],
           showTotal: (total, range) =>
             `Showing ${range[0]} to ${range[1]} of ${total} entries`,
           position: ["bottomRight"],
         }}
         className="table"
+        // define on which height and width the scroll of the table will start
         scroll={{ x: 800, y: 350 }}
       />
     </main>

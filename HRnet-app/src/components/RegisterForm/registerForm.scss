@@ -1,106 +1,47 @@
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@import "../../styles/variableMixins";
+
+// MODAL 
+.modal {
+  text-align: center;
+  height: 100%;
   padding: 15px;
-}
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  &__titles {
-      height: 50%;
-      margin-top: -35px;
-    display: flex;
-    list-style-type: none;
+  &__content {
+    @include columnCenter();
+    padding: 15px;
   }
 }
+
+.coloris {
+  background-color: $desktopBackground;
+  color: white;
+}
+
+// FORM
 
 .registerForm {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin-top: 90px;
-  &__main-content {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 30px;
-    &__titles {
-      text-align: center;
-      color: #1F2243;
-      background-color: white;
-      font-weight: bold;
-      border-radius: 5px 5px 0 0;
-      margin: 0 auto;
-      width: 100%;
-      padding: 5px 0;
-    }
-  }
-  &__aside {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__titles {
-      text-align: center;
-      color: #1F2243;
-      background-color: white;
-      font-weight: bold;
-      border-radius: 5px 5px 0 0;
-      margin: 0 auto;
-      width: 100%;
-      padding: 5px 0;
-    }
+  &__titles {
+    text-align: center;
+    color: $desktopBackground;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    margin: 0 auto;
+    width: 100%;
+    padding: 5px 0;
   }
 }
-
-
-.ant-form-vertical .ant-form-item-label>label {
-  color: white;
-  font-weight: bold;
-}
-.ant-form-item {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.department {
-  color: white;
-  width: 40%;
-  padding: 20px;
-  background-color: #151730;
-  display: flex;
-  flex-direction: column;
-}
-
 
 .address,
-.mainInfo, .department {
+.mainInfo {
   width: 40%;
   height: auto;
-  background-color: #151730;
+  background-color: $cardsBackground;
   border-radius: 5px;
   padding-bottom: 20px;
-}
-
-.address__content,
-.mainInfo__content, .department__content {
-  padding: 5px 20px;
-}
-.address__description, .mainInfo__description {
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-weight: 600;
-  margin: 0;
-}
-.labelFirst {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.inputSpace {
-  margin-bottom: 15px;
 }
 
 .save {
@@ -114,22 +55,52 @@
     font-size: 20px;
     padding: 20px 25px;
     color: white;
-    background-color: #2a8713;
+    background-color: $accentColor;
     border: none;
-    
-
     &:hover {
-      background-color: #94c389;
-      color: #1F2243;
+      background-color: $hoverAccentColor;
+      color: $desktopBackground;
     }
   }
+}
+
+.address__content,
+.mainInfo__content, .department__content {
+  padding: 5px 20px;
+}
+.address__description, .mainInfo__description {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+}
+
+.labelFirst {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.inputSpace {
+  margin-bottom: 15px;
+}
+
+// ANTD STYLES 
+
+.ant-form-vertical .ant-form-item-label>label {
+  color: white;
+  font-weight: bold;
+}
+.ant-form-item {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .ant-input,
 .ant-input-number-input,
 .ant-select-selection-item,
 .ant-picker-input>input {
-  color: #1F2243;
+  color: $desktopBackground;
   font-weight: 600;
 }
 
@@ -143,50 +114,25 @@
 
 .ant-picker-cell-inner {
   transition: none;
-
   &:hover {
-
-    background-color: #2a8713 !important;
+    background-color: $accentColor !important;
     color: white;
   }
 }
 
 .ant-select-item-option {
   &:hover {
-    background-color: #2a8713;
+    background-color: $accentColor !important;
     color: white;
   }
 }
 
 .ant-picker-suffix {
-  color: #2a8713;
-}
-
-.content {
-  text-align: center;
-  height: 100%;
-  padding: 15px;
-}
-
-.coloris {
-  background-color: #1F2243;
-  color: white;
-}
-
-
-
-.change {
-  background-color: #1F2243 !important;
-  color: white;
-  cursor: default;
-
-  &:hover {
-    color: white !important;
-  }
+  color: $accentColor;
 }
 
 .ant-input-status-success {
-  border: #2a8713 2px solid;
+  border: $accentColor 2px solid;
   border-radius: 5px;
 }
 

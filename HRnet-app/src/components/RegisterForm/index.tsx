@@ -17,13 +17,22 @@ import { addUser } from "../../redux/user.slice";
 
 import stateNames from "../../Datas/states";
 
+/**
+ *
+ * functionnal component who render the form and a modal after submitting correctly
+ *
+ */
 function RegisterForm() {
   const dispatch = useAppDispatch();
+  // defining open variable, the opening of the modal is relate on his status
   const [open, setOpen] = useState<boolean>(false);
   const [form] = Form.useForm();
+
+  // using typescript interface to set the types of the values of the form
   interface RawDatas {
     firstname: string;
     lastname: string;
+    // moment object is used by antd for date values
     birthDate: moment.Moment;
     startDate: moment.Moment;
     street: string;
@@ -34,6 +43,9 @@ function RegisterForm() {
   }
 
   const handleSubmit = (e: RawDatas) => {
+    // dispatch the values of the form once submitted and format the values needed
+    // here we need moment files to be formatted to string with a specific format
+    // we also need to return an abbreviation for each states
     dispatch(
       addUser({
         ...e,
@@ -43,8 +55,11 @@ function RegisterForm() {
           ?.abbreviation,
       })
     );
+    // using a property of antd form we reset all fields for a new registration
     form.resetFields();
+    // once the values are dispatched to the redux store we can call the modal by switching open to true
     setOpen(true);
+    // this line of code allows the user to close the modal by clicking outside of it
     document.addEventListener("mousedown", () => setOpen(false));
   };
 
@@ -53,11 +68,11 @@ function RegisterForm() {
       <MyModal
         open={open}
         closeBtnStyle="coloris"
-        styledContent="content"
+        styledContent="modal"
         hideModal={async () => setOpen(false)}
         img="/img/success3.svg"
       >
-        <div className="modal-content">
+        <div className="modal__content">
           <h3>Successfully registrated 👍</h3>
           <h4>Go to Employees to check your registration</h4>
           <Button
@@ -77,7 +92,7 @@ function RegisterForm() {
         form={form}
       >
         <section className="mainInfo">
-          <h2 className="registerForm__main-content__titles">Main info</h2>
+          <h2 className="registerForm__titles">Main info</h2>
           <p className="mainInfo__description">
             Please fill the information needed about yourself
           </p>
@@ -180,7 +195,7 @@ function RegisterForm() {
           </article>
         </section>
         <section className="address">
-          <h2 className="registerForm__main-content__titles">Address</h2>
+          <h2 className="registerForm__titles">Address</h2>
           <p className="address__description">
             Please fill the information needed about where you live
           </p>
@@ -227,7 +242,11 @@ function RegisterForm() {
                 aria-activedescendant=""
               >
                 {stateNames.map((options, index) => (
-                  <Select.Option key={index} value={options.name.toLowerCase()}>
+                  <Select.Option
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    value={options.name.toLowerCase()}
+                  >
                     {options.name}
                   </Select.Option>
                 ))}
@@ -245,7 +264,7 @@ function RegisterForm() {
                 },
               ]}
             >
-              <InputNumber name="zipCode" />
+              <InputNumber name="zipCode" min={0} max={9999} type="number" />
             </Form.Item>
           </article>
           <article className="address__content">

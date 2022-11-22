@@ -1,7 +1,9 @@
+@import "../styles/variableMixins";
+
 html {
     margin: 0;
     padding: 0;
-    background-color: #2B325E;
+    background-color: $background;
 }
 
 body {
@@ -9,8 +11,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #2B325E;
+    font-family: $bodyFont;
+    background-color: $background;
 
 }
 h1,h2,h3,p {
@@ -19,10 +21,10 @@ h1,h2,h3,p {
 }
 
 label,input,select {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: $bodyFont;
 }
 h1,h2,h3,button,a {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: $titleFont !important;
     font-weight: bold;
 }
 

@@ -1,5 +1,8 @@
 import "./logo.scss";
-
+/**
+ *
+ * functionnal component who render the logo of the website
+ */
 function Logo() {
   return (
     <div className="logo" title="logo">
