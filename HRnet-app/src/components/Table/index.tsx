@@ -9,7 +9,7 @@ import { User } from "../../redux/user.slice";
 import Nav from "../Nav";
 
 /**
- * 
+ *
  * functionnal component who render the data table of all the workers successfully registered
  */
 function CurrentEmployees() {
@@ -23,6 +23,7 @@ function CurrentEmployees() {
     {
       // gather table columns on small screens
       title: "Names",
+      defaultSortOrder: "descend",
       render: (record) => (
         <>
           {record.firstname}
@@ -50,6 +51,7 @@ function CurrentEmployees() {
       title: "First Name",
       dataIndex: "firstname",
       key: "firstname",
+      defaultSortOrder: "descend",
       filteredValue: [searchedText],
       onFilter: (value: any, record) => {
         return (
@@ -71,6 +73,7 @@ function CurrentEmployees() {
       title: "Last Name",
       dataIndex: "lastname",
       key: "lastname",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.lastname.localeCompare(b.lastname),
       responsive: ["md", "lg"],
       width: "120px",
@@ -79,6 +82,7 @@ function CurrentEmployees() {
       title: "Start Date",
       dataIndex: "startDate",
       key: "startDate",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.startDate.localeCompare(b.startDate),
       responsive: ["md", "lg", "sm", "xs"],
       width: "110px",
@@ -87,6 +91,7 @@ function CurrentEmployees() {
       title: "Department",
       dataIndex: "department",
       key: "department",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.department.localeCompare(b.department),
       responsive: ["md", "lg", "sm", "xs"],
       width: "130px",
@@ -95,6 +100,7 @@ function CurrentEmployees() {
       title: "D.O.B",
       dataIndex: "birthDate",
       key: "birthDate",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.birthDate.localeCompare(b.birthDate),
       responsive: ["lg", "md", "sm", "xs"],
       width: "110px",
@@ -102,6 +108,7 @@ function CurrentEmployees() {
     {
       // gather the address details on one column in small screens
       title: "address",
+      defaultSortOrder: "descend",
       render: (record) => (
         <>
           {record.street}
@@ -116,14 +123,16 @@ function CurrentEmployees() {
       title: "Street",
       dataIndex: "street",
       key: "street",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.street.localeCompare(b.street),
       responsive: ["md", "lg", "sm"],
-      width: "150px",
+      width: "180px",
     },
     {
       title: "City",
       dataIndex: "city",
       key: "city",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.city.localeCompare(b.city),
       responsive: ["md", "lg", "sm"],
       width: "110px",
@@ -132,6 +141,7 @@ function CurrentEmployees() {
       title: "State",
       dataIndex: "states",
       key: "states",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.states.localeCompare(b.states),
       responsive: ["md", "lg", "sm"],
       width: "80px",
@@ -140,6 +150,7 @@ function CurrentEmployees() {
       title: "Zip Code",
       dataIndex: "zipCode",
       key: "zipCode",
+      defaultSortOrder: "descend",
       sorter: (a, b) => a.zipCode - b.zipCode,
       responsive: ["md", "lg", "sm"],
       width: "130px",
