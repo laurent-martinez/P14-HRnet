@@ -1,5 +1,3 @@
-import "./notfound.scss";
-
 /**
  *
  * functionnal component who render a page that will be display,
