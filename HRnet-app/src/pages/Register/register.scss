@@ -17,8 +17,6 @@
 
 }
 
-
-
 @media only screen and (max-width: 1000px){
     // TABLE
     body {
@@ -34,9 +32,7 @@
         width: 100% !important;
         height: 100% !important;
     }
-    .ant-input-group-wrapper , .ant-input-search {
-        margin: 30px auto 15px auto;
-    }
+  
     .ant-table-pagination {
         text-align: center;
         display: block;
@@ -89,7 +85,9 @@
             flex-direction: row-reverse;
         }
     }
-    
+    .ant-input-group-wrapper , .ant-input-search {
+        margin: 30px auto 15px auto !important;
+    }
     .nav-header__titles li {
         margin-top: 28px;
         & a {
@@ -110,3 +108,5 @@
         justify-content: center !important;
     }
 }
+
+
