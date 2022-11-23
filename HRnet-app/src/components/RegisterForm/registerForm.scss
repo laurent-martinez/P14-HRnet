@@ -48,7 +48,7 @@
   margin: 0 auto;
 
   &__button {
-    margin: 0 auto;
+    margin: 15px auto 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,9 +64,12 @@
   }
 }
 
-.address__content,
-.mainInfo__content, .department__content {
+
+.mainInfo__content{
   padding: 5px 20px;
+}
+.address__content {
+  padding: 15px 20px;
 }
 .address__description, .mainInfo__description {
   color: white;
