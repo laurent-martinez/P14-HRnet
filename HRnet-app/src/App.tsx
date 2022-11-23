@@ -18,7 +18,7 @@ function App() {
         <Route
           path="/Employees"
           element={
-            <Suspense fallback={<h1>Loading ...</h1>}>
+            <Suspense fallback="loading ...">
               <LazyEmployees />
             </Suspense>
           }
