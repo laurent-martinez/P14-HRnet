@@ -183,13 +183,24 @@ function RegisterForm() {
                 aria-controls="department"
                 aria-activedescendant=""
               >
-                <Select.Option value="sales">sales</Select.Option>
-                <Select.Option value="marketing">marketing</Select.Option>
-                <Select.Option value="engineering">Engineering</Select.Option>
-                <Select.Option value="human resources">
+                <Select.Option aria-label="sales" value="sales">
+                  sales
+                </Select.Option>
+                <Select.Option aria-label="marketing" value="marketing">
+                  marketing
+                </Select.Option>
+                <Select.Option aria-label="engineering" value="engineering">
+                  Engineering
+                </Select.Option>
+                <Select.Option
+                  aria-label="human resources"
+                  value="human resources"
+                >
                   Human Resources
                 </Select.Option>
-                <Select.Option value="legal">Legal</Select.Option>
+                <Select.Option aria-label="legal" value="legal">
+                  Legal
+                </Select.Option>
               </Select>
             </Form.Item>
           </article>
@@ -246,6 +257,7 @@ function RegisterForm() {
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
                     value={options.name.toLowerCase()}
+                    aria-label={`${options.name}`}
                   >
                     {options.name}
                   </Select.Option>
@@ -264,7 +276,7 @@ function RegisterForm() {
                 },
               ]}
             >
-              <InputNumber name="zipCode" min={0} max={9999} type="number" />
+              <InputNumber name="zipCode" min={0} max={99999} type="number" />
             </Form.Item>
           </article>
           <article className="address__content">
