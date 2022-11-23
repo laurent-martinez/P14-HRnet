@@ -6,7 +6,7 @@ import "./logo.scss";
 function Logo() {
   return (
     <div className="logo" title="logo">
-      <img src="./img/logotest3.svg" alt="logo" />
+      <img src="./img/logoHRnet.png" alt="logo" />
       <h1 className="logo__title">
         <span className="logo__title__maj">W</span>EALTH{" "}
         <span className="logo__title__maj">H</span>EALTH
